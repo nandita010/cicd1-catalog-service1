@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 
 @Entity
 @Table(name = "products")
@@ -12,10 +12,11 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 public class Product{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
     private BigDecimal price;
-    private Long id;
+
 
     public Product() {
     }
