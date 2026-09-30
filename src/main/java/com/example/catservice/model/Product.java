@@ -1,8 +1,14 @@
 package com.example.catservice.model;
 
-import java.math.BigDecimal;
+import jakarta.persistence.*;
 
-public class Product {
+import java.math.BigDecimal;
+@Entity
+@Table(name = "products")
+
+public class Product{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private BigDecimal price;
@@ -41,20 +47,6 @@ public class Product {
         this.price = price;
     }
 }
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Product {
-    private long id;
-    private String name;
-    private BigDecimal price;
-}
 
 

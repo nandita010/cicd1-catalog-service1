@@ -1,6 +1,5 @@
 package com.example.catservice.controller;
 
-import com.example.catservice.model.Product;
 import com.example.catservice.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,5 @@
 package com.example.catservice.service;
 
-import com.example.catservice.model.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
