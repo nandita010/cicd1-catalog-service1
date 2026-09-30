@@ -3,16 +3,19 @@ package com.example.catservice.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @Entity
 @Table(name = "products")
 
 public class Product{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     private String name;
     private BigDecimal price;
-
+    private Long id;
 
     public Product() {
     }
@@ -23,13 +26,8 @@ public class Product{
         this.price = price;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getName() {
         return name;
