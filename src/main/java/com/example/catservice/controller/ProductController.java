@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
     private final ProductService service;
 
     public ProductController(ProductService service) {
@@ -17,26 +18,13 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAll(){
+    public List<Product> getAll() {
         return service.getAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product create(@RequestBody Product product){
+    public Product create(@RequestBody Product product) {
         return service.create(product);
-
-    private final ProductService productService;
-
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
-    @GetMapping
-    public List<Product>getAll(){
-        return productService.getAll();
-    }
-    @PostMapping
-    public Product create(@RequestBody Product product){
-        return productService.create(product);
     }
 }

@@ -1,9 +1,19 @@
 package com.example.catservice.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
-public class Product {
+
+
+@Entity
+@Table(name = "products")
+
+public class Product{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private BigDecimal price;
 
@@ -17,13 +27,8 @@ public class Product {
         this.price = price;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getName() {
         return name;
@@ -41,20 +46,6 @@ public class Product {
         this.price = price;
     }
 }
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Product {
-    private long id;
-    private String name;
-    private BigDecimal price;
-}
 
 
