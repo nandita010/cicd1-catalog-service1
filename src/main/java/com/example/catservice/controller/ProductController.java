@@ -12,31 +12,31 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-    private final ProductService service;
     private final ProductService productService;
 
-    public ProductController(ProductService service, ProductService productService) {
-        this.service = service;
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping
     public List<Product> getAll() {
-        return service.getAll();
+        return productService.getAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Product create(@RequestBody Product product) {
-        return service.create(product);
+        return productService.create(product);
     }
 
     @GetMapping("/{id}")
     public Product getById(@PathVariable Long id) {
-        return service.getById(id);
+        return productService.getById(id);
+    }
+
     @GetMapping("/min-price")
-        public List<Product>getByMinimumPrice(@RequestParam("price") BigDecimal price){
-            return productService.getByMinimumPrice(price);
-        }
+    public List<Product> getByMinimumPrice(
+            @RequestParam("price") BigDecimal price) {
+        return productService.getByMinimumPrice(price);
     }
 }
