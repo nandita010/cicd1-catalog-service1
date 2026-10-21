@@ -4,6 +4,7 @@ import com.example.catservice.model.Product;
 import com.example.catservice.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import com.example.catservice.dto.CreateProductRequest;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -23,11 +24,13 @@ public class ProductController {
         return productService.getAll();
     }
 
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product create(@RequestBody Product product) {
-        return productService.create(product);
+    public Product create(@RequestBody CreateProductRequest request) {
+        return productService.create(request);
     }
+
 
     @GetMapping("/{id}")
     public Product getById(@PathVariable Long id) {
@@ -39,4 +42,11 @@ public class ProductController {
             @RequestParam("price") BigDecimal price) {
         return productService.getByMinimumPrice(price);
     }
+
+    @GetMapping("/by-category")
+    public List<Product> getByCategory(
+            @RequestParam("name") String categoryName) {
+        return productService.getByCategoryName(categoryName);
+    }
+
 }
