@@ -61,4 +61,8 @@ public class ProductService {
     public List<Product> getByMinimumPrice(BigDecimal minPrice) {
         return repository.findByMinimumPrice(minPrice);
     }
+
+    public List<Product> getByCategoryName(String categoryName) {
+        return repository.findByCategoryName(categoryName);
+    }
 }
